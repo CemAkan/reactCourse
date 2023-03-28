@@ -1,21 +1,25 @@
 import Proptypes from "prop-types";
 
 function User({ username, isLoggedIn, friends, location }) {
-  return (
-    <>
-      <p>{isLoggedIn ? `Hello, ${username}` : "Login is unsuccessful"}</p>
+  if (!isLoggedIn) {
+    return <p>You are not logged in</p>;
+  } else {
+    return (
+      <>
+        <p>{`Hello, ${username}`}</p>
 
-      <p>
-        {location
-          ? `You are in ${location.city}/${location.country}/${location.region} and zip code is ${location.zipCode}`
-          : "Location is unknown"}
-      </p>
+        <p>
+          {location
+            ? `You are in ${location.city}/${location.country}/${location.region} and zip code is ${location.zipCode}`
+            : "Location is unknown"}
+        </p>
 
-      {friends.map((friend, index) => {
-        return <div key={index}>{friend}</div>;
-      })}
-    </>
-  );
+        {friends.map((friend, index) => {
+          return <div key={index}>{friend}</div>;
+        })}
+      </>
+    );
+  }
 }
 
 User.propTypes = {
