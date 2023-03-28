@@ -1,17 +1,13 @@
 import Header from "./components/Header";
+import User from "./components/User";
 import "./App.css";
-
-const text = "successfuly";
-const isLoggedIn = true;
 
 function App() {
   return (
-    <div className="abc">
-      <>
-        <Header />
-      </>
-      <p>{isLoggedIn ? text : "Unsuccessful"}</p>
-    </div>
+    <>
+      <Header />
+      <User isLoggedIn={true} name="Cem" surname="Akan" />
+    </>
   );
 }
 
