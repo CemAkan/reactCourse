@@ -8,8 +8,7 @@ function App() {
       <Header />
       <User
         isLoggedIn={true}
-        name="Cem"
-        surname="Akan"
+        username="Cem"
         friends={["friend-1", "friend-2", "friend-3"]}
       />
     </>
