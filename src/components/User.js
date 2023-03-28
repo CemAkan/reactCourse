@@ -34,5 +34,16 @@ User.propTypes = {
     region: Proptypes.string,
   }),
 };
+User.defaultProps = {
+  username: "Guest",
+  isLoggedIn: false,
+  friends: [],
+  location: {
+    city: "Unknown",
+    country: "Unknown",
+    zipCode: 0,
+    region: "Unknown",
+  },
+};
 
 export default User;
