@@ -1,5 +1,5 @@
 function Header() {
-  return <h1>REACT</h1>;
+  return <h1>Loggin checker</h1>;
 }
 
 export default Header;
