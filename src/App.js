@@ -6,7 +6,12 @@ function App() {
   return (
     <>
       <Header />
-      <User isLoggedIn={true} name="Cem" surname="Akan" />
+      <User
+        isLoggedIn={true}
+        name="Cem"
+        surname="Akan"
+        friends={["friend-1", "friend-2", "friend-3"]}
+      />
     </>
   );
 }
