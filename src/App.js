@@ -3,6 +3,7 @@ import User from "./components/User";
 import "./App.css";
 import { useState } from "react";
 import Counter from "./components/Counter";
+import Input from "./components/Input";
 
 function App() {
   const [friends, setFriends] = useState(["friend-1", "friend-2", "friend-3"]);
@@ -65,6 +66,8 @@ function App() {
 
       <hr />
       <br />
+
+      <Input />
     </>
   );
 }
