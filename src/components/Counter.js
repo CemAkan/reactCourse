@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Counter() {
   const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    console.log("Counter has been mounted!");
+  }, []);
+
+  useEffect(() => {
+    console.log("Counter has been updated!");
+  }, [counter]);
 
   return (
     <>
