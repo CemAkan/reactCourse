@@ -5,6 +5,9 @@ function Counter() {
 
   useEffect(() => {
     console.log("Counter has been mounted!");
+    return () => {
+      console.log("Counter has been unmounted!");
+    };
   }, []);
 
   useEffect(() => {
