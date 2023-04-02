@@ -14,6 +14,8 @@ function App() {
     region: "Europe",
   });
 
+  const [isVisible, setIsVisible] = useState(true);
+
   return (
     <>
       <Header />
@@ -67,7 +69,14 @@ function App() {
       <hr />
       <br />
 
-      <Input />
+      {isVisible && <Input />}
+
+      <hr />
+      <br />
+
+      <button onClick={() => setIsVisible(!isVisible)}>
+        {isVisible ? "Hide" : "Show"} Input
+      </button>
     </>
   );
 }
