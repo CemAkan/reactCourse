@@ -4,6 +4,7 @@ import "./App.css";
 import { useState } from "react";
 import Counter from "./components/Counter";
 import Input from "./components/Input";
+import UserListApi from "./components/user/index";
 
 function App() {
   const [friends, setFriends] = useState(["friend-1", "friend-2", "friend-3"]);
@@ -77,6 +78,11 @@ function App() {
       <button onClick={() => setIsVisible(!isVisible)}>
         {isVisible ? "Hide" : "Show"} Input
       </button>
+
+      <hr />
+      <br />
+
+      <UserListApi />
     </>
   );
 }
