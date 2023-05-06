@@ -1,12 +1,14 @@
 import Proptypes from "prop-types";
+import { useParams } from "react-router-dom";
 
-function User({ username, isLoggedIn, friends, location }) {
+function User({ isLoggedIn, friends, location }) {
+  let { name } = useParams();
   if (!isLoggedIn) {
     return <p>You are not logged in</p>;
   } else {
     return (
       <>
-        <p>{`Hello, ${username}`}</p>
+        <p>{`Hello, ${name}`}</p>
 
         <p>
           {location

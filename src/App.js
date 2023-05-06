@@ -40,11 +40,10 @@ function App() {
           <Route exact path="/" element={<Header />} />
 
           <Route
-            path="/user"
+            path="/user/:name"
             element={
               <User
                 isLoggedIn={true}
-                username="Cem"
                 friends={friends}
                 location={{
                   city: address.city,
