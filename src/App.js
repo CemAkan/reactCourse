@@ -5,85 +5,65 @@ import { useState } from "react";
 import Counter from "./components/Counter";
 import Input from "./components/Input";
 import UserListApi from "./components/user/index";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
-  const [friends, setFriends] = useState(["friend-1", "friend-2", "friend-3"]);
-  const [address, setAddress] = useState({
+  const [friends] = useState(["friend-1", "friend-2", "friend-3"]);
+  const [address] = useState({
     city: "Istanbul",
     country: "Turkey",
     zipCode: 34000,
     region: "Europe",
   });
 
-  const [isVisible, setIsVisible] = useState(true);
-
   return (
-    <>
-      <Header />
-      <User
-        isLoggedIn={true}
-        username="Cem"
-        friends={friends}
-        location={{
-          city: address.city,
-          country: address.country,
-          zipCode: address.zipCode,
-          region: address.region,
-        }}
-      />
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/user">User</Link>
+            </li>
+            <li>
+              <Link to="/counter">Counter</Link>
+            </li>
+            <li>
+              <Link to="/input">Input</Link>
+            </li>
+            <li>
+              <Link to="/user-list">User List</Link>
+            </li>
+          </ul>
+        </nav>
 
-      <hr />
-      <br />
+        <Routes>
+          <Route exact path="/" element={<Header />} />
 
-      <button
-        onClick={() => {
-          let friendCounter = friends.length;
-          friendCounter++;
-          setFriends([...friends, `friend-${friendCounter}`]);
-        }}
-      >
-        Add Friend
-      </button>
+          <Route
+            path="/user"
+            element={
+              <User
+                isLoggedIn={true}
+                username="Cem"
+                friends={friends}
+                location={{
+                  city: address.city,
+                  country: address.country,
+                  zipCode: address.zipCode,
+                  region: address.region,
+                }}
+              />
+            }
+          />
 
-      <button onClick={() => setFriends([])}>Remove All Friends</button>
+          <Route path="/counter" element={<Counter />} />
 
-      <button onClick={() => setFriends(friends.slice(0, -1))}>
-        Remove Last Friend
-      </button>
+          <Route path="/input" element={<Input />} />
 
-      <hr />
-      <br />
-
-      <button
-        onClick={() =>
-          setAddress({ ...address, city: "Ankara", zipCode: 6000 })
-        }
-      >
-        Change City
-      </button>
-
-      <hr />
-      <br />
-
-      <Counter />
-
-      <hr />
-      <br />
-
-      {isVisible && <Input />}
-
-      <hr />
-      <br />
-
-      <button onClick={() => setIsVisible(!isVisible)}>
-        {isVisible ? "Hide" : "Show"} Input
-      </button>
-
-      <hr />
-      <br />
-
-      <UserListApi />
-    </>
+          <Route path="/user-list" element={<UserListApi />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
