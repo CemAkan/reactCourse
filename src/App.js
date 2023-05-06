@@ -56,11 +56,11 @@ function App() {
             }
           />
 
-          <Route path="/counter" element={<Counter />} />
+          <Route path="/counter" Component={Counter} />
 
-          <Route path="/input" element={<Input />} />
+          <Route path="/input" Component={Input} />
 
-          <Route path="/user-list" element={<UserListApi />} />
+          <Route path="/user-list" Component={UserListApi} />
         </Routes>
       </div>
     </Router>
