@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link, Switch, Route, useRouteMatch } from "react-router-dom";
+import UserDetails from "./User";
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -13,6 +15,8 @@ function UserList() {
       .finally(() => setIsLoading(false));
   }, []);
 
+  const { path, url } = useRouteMatch();
+
   return (
     <div>
       <h1>Users</h1>
@@ -21,10 +25,18 @@ function UserList() {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            {user.name} - {user.email}
+            <Link activeClassName="active" to={`${url}/${user.id}`}>
+              {user.name}
+            </Link>
           </li>
         ))}
       </ul>
+      <Switch>
+        <Route exact path={path}>
+          <h3>Please select a user.</h3>
+        </Route>
+        <Route path={`${path}/:id`} component={UserDetails} />
+      </Switch>
     </div>
   );
 }
