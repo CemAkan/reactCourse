@@ -5,7 +5,8 @@ import { useState } from "react";
 import Counter from "./components/Counter";
 import Input from "./components/Input";
 import UserListApi from "./components/user/index";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import NotFound from "./components/Error404";
 
 function App() {
   const [friends] = useState(["friend-1", "friend-2", "friend-3"]);
@@ -36,8 +37,8 @@ function App() {
           </ul>
         </nav>
 
-        <Routes>
-          <Route exact path="/" element={<Header />} />
+        <Switch>
+          <Route exact path="/" component={Header} />
 
           <Route
             path="/user/:name"
@@ -55,12 +56,14 @@ function App() {
             }
           />
 
-          <Route path="/counter" Component={Counter} />
+          <Route path="/counter" component={Counter} />
 
-          <Route path="/input" Component={Input} />
+          <Route path="/input" component={Input} />
 
-          <Route path="/user-list" Component={UserListApi} />
-        </Routes>
+          <Route path="/user-list" component={UserListApi} />
+
+          <Route path="*" component={NotFound} />
+        </Switch>
       </div>
     </Router>
   );
