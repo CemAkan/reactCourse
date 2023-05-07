@@ -23,7 +23,7 @@ function UserDetails() {
       <br />
       <br />
 
-      <Link to={`/users/${parseInt(id) + 1}`}>
+      <Link to={`/user-list/${parseInt(id) + 1}`}>
         Next User ({parseInt(id) + 1})
       </Link>
     </div>
