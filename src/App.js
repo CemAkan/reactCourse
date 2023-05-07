@@ -5,7 +5,12 @@ import { useState } from "react";
 import Counter from "./components/Counter";
 import Input from "./components/Input";
 import UserListApi from "./components/user/index";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
 import NotFound from "./components/Error404";
 
 function App() {
@@ -23,16 +28,24 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/user">User</Link>
+              <NavLink to="/user" exact activeClassName="active ">
+                User
+              </NavLink>
             </li>
             <li>
-              <Link to="/counter">Counter</Link>
+              <NavLink to="/counter" activeClassName="active ">
+                Counter
+              </NavLink>
             </li>
             <li>
-              <Link to="/input">Input</Link>
+              <NavLink to="/input" activeClassName="active ">
+                Input
+              </NavLink>
             </li>
             <li>
-              <Link to="/user-list">User List</Link>
+              <NavLink to="/user-list" activeClassName="active ">
+                User List
+              </NavLink>
             </li>
           </ul>
         </nav>
