@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Switch, Route, useRouteMatch } from "react-router-dom";
+import { NavLink, Switch, Route, useRouteMatch } from "react-router-dom";
 import UserDetails from "./User";
 
 function UserList() {
@@ -25,9 +25,9 @@ function UserList() {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <Link activeClassName="active" to={`${url}/${user.id}`}>
+            <NavLink activeClassName="active" to={`${url}/${user.id}`}>
               {user.name}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>
