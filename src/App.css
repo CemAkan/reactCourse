@@ -19,3 +19,8 @@ span {
   font-weight: bold;
   margin: 10px 0;
 }
+.error {
+  color: red;
+  font-weight: bold;
+  font-size: 15px;
+}
