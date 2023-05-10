@@ -3,24 +3,25 @@ import { useFormik } from "formik";
 import validation from "./Validation";
 
 function FormExample() {
-  const { handleSubmit, handleChange, values, errors } = useFormik({
-    initialValues: {
-      email: "email@email.com",
-      password: "",
-      passwordConfirm: "",
-      gender: "noGender",
-      hobies: [],
-      country: "Turkey",
-    },
-    onSubmit: (values) => {
-      console.log({
-        status: "Form submitted",
-        values: values,
-        date: new Date(),
-      });
-    },
-    validationSchema: validation,
-  });
+  const { handleSubmit, handleChange, handleBlur, values, errors, touched } =
+    useFormik({
+      initialValues: {
+        email: "email@email.com",
+        password: "",
+        passwordConfirm: "",
+        gender: "noGender",
+        hobies: [],
+        country: "Turkey",
+      },
+      onSubmit: (values) => {
+        console.log({
+          status: "Form submitted",
+          values: values,
+          date: new Date(),
+        });
+      },
+      validationSchema: validation,
+    });
 
   return (
     <div>
@@ -33,8 +34,11 @@ function FormExample() {
           type="email"
           value={values.email}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
-        {errors.email ? <div className="error">{errors.email}</div> : null}
+        {errors.email && touched.email && (
+          <div className="error">{errors.email}</div>
+        )}
         <br />
         <br />
         <label htmlFor="password"> Password </label>
@@ -44,10 +48,11 @@ function FormExample() {
           type="password"
           value={values.password}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
-        {errors.password ? (
+        {errors.password && touched.password && (
           <div className="error">{errors.password}</div>
-        ) : null}
+        )}
         <br />
         <br />
         <label htmlFor="passwordConfirm"> Password Confirm </label>
@@ -57,10 +62,11 @@ function FormExample() {
           type="password"
           value={values.passwordConfirm}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
-        {errors.passwordConfirm ? (
+        {errors.passwordConfirm && touched.passwordConfirm && (
           <div className="error">{errors.passwordConfirm}</div>
-        ) : null}
+        )}
         <br />
         <br />
         <span>Male</span>
