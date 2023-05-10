@@ -12,7 +12,7 @@ import {
   NavLink,
 } from "react-router-dom";
 import NotFound from "./components/Error404";
-import Form from "./components/Form";
+import Form from "./components/form/Form";
 
 function App() {
   const [friends] = useState(["friend-1", "friend-2", "friend-3"]);
