@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import validation from "./Validation";
 
 function FormExample() {
-  const { handleSubmit, handleChange, values } = useFormik({
+  const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
       email: "email@email.com",
       password: "",
@@ -34,6 +34,7 @@ function FormExample() {
           value={values.email}
           onChange={handleChange}
         />
+        {errors.email ? <div className="error">{errors.email}</div> : null}
         <br />
         <br />
         <label htmlFor="password"> Password </label>
@@ -44,6 +45,9 @@ function FormExample() {
           value={values.password}
           onChange={handleChange}
         />
+        {errors.password ? (
+          <div className="error">{errors.password}</div>
+        ) : null}
         <br />
         <br />
         <label htmlFor="passwordConfirm"> Password Confirm </label>
@@ -54,6 +58,9 @@ function FormExample() {
           value={values.passwordConfirm}
           onChange={handleChange}
         />
+        {errors.passwordConfirm ? (
+          <div className="error">{errors.passwordConfirm}</div>
+        ) : null}
         <br />
         <br />
         <span>Male</span>
