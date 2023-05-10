@@ -12,6 +12,7 @@ import {
   NavLink,
 } from "react-router-dom";
 import NotFound from "./components/Error404";
+import Form from "./components/Form";
 
 function App() {
   const [friends] = useState(["friend-1", "friend-2", "friend-3"]);
@@ -47,6 +48,11 @@ function App() {
                 User List
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/form" activeClassName="active ">
+                Form
+              </NavLink>
+            </li>
           </ul>
         </nav>
 
@@ -74,6 +80,8 @@ function App() {
           <Route path="/input" component={Input} />
 
           <Route path="/user-list" component={UserListApi} />
+
+          <Route path="/form" component={Form} />
 
           <Route path="*" component={NotFound} />
         </Switch>
