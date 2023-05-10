@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik } from "formik";
 
 function FormExample() {
   return (
@@ -8,18 +8,34 @@ function FormExample() {
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => {
-          console.log(values);
+          console.log({
+            status: "Form submitted",
+            values: values,
+            date: new Date(),
+          });
         }}
       >
-        <Form>
-          <label htmlFor="email">Email</label>
-          <Field name="email" type="email" />
-          <br />
-          <label htmlFor="password">Password</label>
-          <Field name="password" type="password" />
-          <br />
-          <button type="submit">Submit</button>
-        </Form>
+        {({ handleSubmit, handleChange }) => (
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              onChange={handleChange}
+            />
+            <br />
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              onChange={handleChange}
+            />
+            <br />
+            <button type="submit">Submit</button>
+          </form>
+        )}
       </Formik>
     </div>
   );
