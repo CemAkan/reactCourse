@@ -66,7 +66,7 @@ function App() {
                 {...props}
                 isLoggedIn={true}
                 friends={friends}
-                address={address}
+                location={address}
               />
             )}
           />
