@@ -8,6 +8,7 @@ function User({ isLoggedIn, friends, location }) {
   } else {
     return (
       <>
+        <h1>User</h1>
         <p>{`Hello, ${name}`}</p>
 
         <p>

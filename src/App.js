@@ -61,18 +61,14 @@ function App() {
 
           <Route
             path="/user/:name"
-            element={
+            render={(props) => (
               <User
+                {...props}
                 isLoggedIn={true}
                 friends={friends}
-                location={{
-                  city: address.city,
-                  country: address.country,
-                  zipCode: address.zipCode,
-                  region: address.region,
-                }}
+                address={address}
               />
-            }
+            )}
           />
 
           <Route path="/counter" component={Counter} />
