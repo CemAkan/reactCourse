@@ -1,7 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  console.log(this.props);
   return (
     <div className="App">
       <header className="App-header">
@@ -21,5 +22,8 @@ function App() {
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return state;
+};
 
-export default App;
+export default connect(mapStateToProps)(App);
