@@ -6,7 +6,13 @@ import reportWebVitals from "./reportWebVitals";
 import { combineReducers, createStore } from "redux";
 
 function userReducer(state = " ", action) {
-  return state;
+  switch (action.type) {
+    case "userUpdate":
+      return action.payload;
+
+    default:
+      return state;
+  }
 }
 
 function productReducer(state = [], action) {
