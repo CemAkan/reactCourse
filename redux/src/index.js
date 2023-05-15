@@ -5,20 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
-
-function userReducer(state = " ", action) {
-  switch (action.type) {
-    case "userUpdate":
-      return action.payload;
-
-    default:
-      return state;
-  }
-}
-
-function productReducer(state = [], action) {
-  return state;
-}
+import productReducer from "./Reducers/productReducer";
+import userReducer from "./Reducers/userReducer";
 
 const rootReducer = combineReducers({
   products: productReducer,
