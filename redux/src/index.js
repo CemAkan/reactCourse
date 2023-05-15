@@ -33,6 +33,14 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+const updateUserNameAction = {
+  type: "userUpdate",
+  payload: {
+    user: "Deneme",
+  },
+};
+store.dispatch(updateUserNameAction);
+
 console.log(store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
